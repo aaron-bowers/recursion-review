@@ -6,7 +6,7 @@
 // But instead we're going to implement it from scratch:
 var getElementsByClassName = function(className) {
   var node = document.body;
-  var elementsByClassName = [];
+  var nodesByClassName = [];
 
   var innerFunction = function(currentNode) {
     // console.log(currentNode.classList);
@@ -25,8 +25,8 @@ var getElementsByClassName = function(className) {
 
   };
   innerFunction(node);
-  console.log(elementsByClassName);
-  return elementsByClassName;
+  console.log(nodesByClassName);
+  return nodesByClassName;
 };
 
 
