@@ -5,6 +5,7 @@
 
 var stringifyJSON = function(obj) {
   //if single value
+
   if (typeof obj === 'number' || typeof obj === 'boolean') {
     return obj.toString();
   }
@@ -41,15 +42,15 @@ var stringifyJSON = function(obj) {
 
   //if obj
   if (typeof obj === 'object') {
+    var results = [];
 
-    if (obj === undefined) {
+    if (!obj) {
       return '{}';
     }
 
-    var results = [];
-
     for (var keys in obj) {
-      if ((keys !== 'function' && obj[keys] !== 'function') && (obj[keys] !== undefined && keys !== undefined)) {
+      // debugger;
+      if ((typeof keys !== 'function' && typeof obj[keys] !== 'function') && (obj[keys] && keys)) {
         results.push(stringifyJSON(keys) + ':' + stringifyJSON(obj[keys]));
       }
     }
